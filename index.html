@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="fonts" href="">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    :root {
+      font-size: 16px;
+      --ft-xl: 4rem;
+      --ft-800: 1.4rem;
+      --ft-700: 1.1rem;
+      --ft-400: 0.9rem;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    @font-face {
+    font-family: HankenGrotesk;
+    src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+    }
+    .attribution { font-size: 11px; text-align: center;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: HankenGrotesk;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    main {
+      width: clamp(600px, 30%, 1000px);
+      display: flex;
+      border-radius: 5%;
+      box-shadow: 5px 10px 8px 3px rgba(0,0,0,0.1);
+      margin-bottom: 2%;
+    }
+    .results {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      border-radius: 5%;
+      text-align: center;
+      align-items: center;
+      padding: 5%;
+    }
+    .results p {
+      color: hsl(241, 100%, 89%);
+    }
+    .first-paragraph p {
+      font-size: var(--ft-700);
+      font-weight: 700;
+    }
+    .score {
+      width: 70%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      border-radius: 50%;
+      font-size: var(--ft-400);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 15%;
+    }
+    .score h1 {
+      color: hsl(0, 0%, 100%);
+      font-size: var(--ft-xl);
+      font-weight: 800;
+      line-height: 1;
+    }
+    .note {
+      width: 100%;
+      margin-top: 15%;
+      padding-inline: 6%;
+    }
+    .note h2 {
+      font-size: var(--ft-800);
+      color: hsl(0, 0%, 100%);
+    }
+    .note p {
+      font-size: var(--ft-400);
+      font-weight: 400;
+      margin-top: 5%;
+    }
+    .summary {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: var(--ft-700);
+    }
+    .summary h3 {
+      font-size: var(--ft-700);
+      font-weight: 700;
+      align-self: flex-start;
+      margin-top: 10%;
+      margin-left: 5%;
+    }
+    .triangles {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin-top: 8%;
+      /*margin-bottom: 10%;*/
+    }
+    .modules {
+      width: 80%;
+      height: 15%;
+      margin-inline: auto;
+      margin-bottom: 5%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      font-size: var(--ft-400);
+      font-weight: bold;
+    }
+    .reaction {
+      color: hsl(0, 100%, 67%);
+      background-color: hsla(0, 100%, 67%, 0.07);
+    }
+   img {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    span{
+      margin-left: auto;
+      margin-right: 5%;
+      color: black;
+      font-weight: 500;
+    }
+    .memory {
+      color: hsl(39, 100%, 56%);
+      background-color: hsla(39, 100%, 56%, 0.07);
+    }
+    .verbal {
+      color: hsl(166, 100%, 37%);
+      background-color: hsla(166, 100%, 37%, 0.07);
+    }
+    .visual {
+      color: hsl(234, 85%, 45%);
+      background-color: hsla(234, 85%, 45%, 0.07);
+    }
+    .summary input {
+      width: 80%;
+      height: 13%;
+      color: white;
+      background-color: hsl(224, 30%, 27%);
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: var(--ft-400);
+      border: none;
+      margin-bottom: 10%;
+    }
+    .summary input:active{
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    }
+    @media (max-width:600px) {
+      :root {
+        font-size: 16px;
+      --ft-xl: 4rem;
+      --ft-800: 1.5rem;
+      --ft-700: 1rem;
+      --ft-400: 0.9rem;
+    }
+    body {
+      justify-content: flex-start;
+    }
+    main {
+      width: 100%;
+      height: 95vh;
+      flex-direction: column;
+      border-radius: 0;
+    }
+    .results {
+      width: 100%;
+      height: 40%;
+      border-top-left-radius: 0%;
+      border-top-right-radius: 0%;
+    }
+    .score {
+      width: 50%;
+      margin-top: 5%;
+    }
+    .note {
+      margin-top: 5%;
+    }
+    .note p{
+      padding-inline: 10%;
+      margin-block: 1%;
+    }
+    .summary {
+      width: 100%;
+      height: 60%;
+    }
+    .summary h3 {
+      margin-top: 5%;
+    }
+    .triangles {
+      margin-top: 5%;
+    }
+    .modules {
+      height: 15%;
+      border-radius: 10px;
+    }
+    .summary input {
+      height: 15%;
+    }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="results">
+      <div class="first-paragraph">
+        <p>Your Result</p>
+      </div>
+      <div class="score">
+        <h1 class="heading">76</h1>
+        <p>of 100</p>
+      </div>
+      <div class="note">
+        <h2>Great</h2>
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+    </div>
+    <div class="summary">
+      <h3>Summary</h3>
+      <div class="triangles">
+        <p class="reaction modules"><img src="assets/images/icon-reaction.svg" alt="icon-reaction"> Reaction <span><strong>80</strong> / 100</span></p>
+        <p class="memory modules"><img src="assets/images/icon-memory.svg" alt="icon-memory"> Memory <span><strong>92</strong> / 100</span></p>
+        <p class="verbal modules"><img src="assets/images/icon-verbal.svg" alt="icon-verbal"> Verbal <span><strong>61</strong> / 100</span></p>
+        <p class="visual modules"><img src="assets/images/icon-visual.svg" alt="icon-visual"> Visual <span><strong>72</strong> / 100</span></p>
+      </div>
+      <input type="button" value="Continue">
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Hicham Bouzalmad</a>.
+  </div>
+</body>
+</html>
